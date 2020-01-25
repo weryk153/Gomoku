@@ -1,0 +1,89 @@
+body, div {
+  margin: 0;
+}
+
+.header {
+  height: 70px;
+}
+
+.restart {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  border-radius: 50px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 10px;
+  color: rgb(66, 66, 66);
+}
+
+.gomoku-player {
+  display: flex;
+  justify-content: center;
+}
+
+.player {
+  width: 100px;
+  border: 1px solid rgb(155, 155, 155);
+  text-align: center;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  width: 100px;
+  border: 1px solid rgb(155, 155, 155);
+  text-align: center;
+}
+
+.winner {
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.board {
+  position: absolute;
+  margin: 0 auto;
+  width: 1000px;
+  margin-top: 100px;
+  background: rgb(248, 184, 87);
+  padding: 30px;
+  margin-left: -15px;
+}
+
+.btn-board {
+  position: absolute;
+  width: 970px;
+  margin-top: 110px;
+}
+
+.row {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.btn-row {
+  display: inline-flex;
+  max-width: 950px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.col {
+  box-sizing: border-box;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+}
