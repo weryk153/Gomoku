@@ -109,6 +109,7 @@ class App extends Component {
         white: 0
       },
       winner: '',
+      isTurnBlack: true
     })
   }
 
