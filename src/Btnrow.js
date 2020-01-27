@@ -24,15 +24,17 @@ class Btnrow extends Component {
   render() {
     const { btns } = this.state
     const { isTurnBlack } = this.props
-    const { handleChangeisTurn } = this.props
+    const { handleIsTurnWho } = this.props
     const { rowId } = this.props
     const { handleAddChessBoard } = this.props
     const { winner } = this.props
+    const { backgroundColor } = this.props
+    const { isClick } = this.props
     return (
       <div className="row btn-row">
         {btns.map(btn => (
-          <Button key={btn} rowId={rowId} buttonId={btn} handleChangeisTurn={handleChangeisTurn} isTurnBlack={isTurnBlack} 
-          handleAddChessBoard={handleAddChessBoard} winner={winner}></Button>
+          <Button key={btn} rowId={rowId} buttonId={btn} handleIsTurnWho={handleIsTurnWho} isTurnBlack={isTurnBlack} 
+          handleAddChessBoard={handleAddChessBoard} winner={winner} backgroundColor={backgroundColor} isClick={isClick}></Button>
         ))}
       </div>
     )

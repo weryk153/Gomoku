@@ -8,11 +8,13 @@ class Header extends Component {
   render() {
     const { count } = this.props
     const { winner } = this.props
+    const { handleRestartGame } = this.props
+
     return (
       <div className="header">
         <div className="header-info">
           <h1 className="title">Gomoku</h1>
-          <button className="btn btn-outline-secondary restart">Restart</button> 
+          <button className="btn btn-outline-secondary restart" onClick={handleRestartGame}>Restart</button> 
         </div>
         <div className="gomoku-player">
           <div className="player">黑棋</div>

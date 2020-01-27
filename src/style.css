@@ -42,10 +42,13 @@ body, div {
 }
 
 .winner {
-  width: 150px;
+  width: 1000px;
   margin: 0 auto;
+  margin-top: 5px;
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
+  background-color: rgb(255, 46, 46);
+  padding: 10px;
 }
 
 .container {

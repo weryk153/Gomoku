@@ -6,7 +6,6 @@ class Btnboard extends Component {
     super(props)
     this.state = {
       btnRows: [],
-      isTurnBlack: true
     }
   }
 
@@ -20,31 +19,20 @@ class Btnboard extends Component {
       btnRows: Rows
     })
   }
-  
-  // 黑白棋輪流
-  handleChangeisTurn = () => {
-    const { isTurnBlack } = this.state
-    const { handleCount } = this.props
-    this.setState({
-      isTurnBlack: !isTurnBlack
-    })
-    if (isTurnBlack) {
-      handleCount(1, 0)
-    } else {
-      handleCount(0, 1)
-    }
-  }
 
   render() {
     const { btnRows } = this.state
-    const { isTurnBlack } = this.state
+    const { isTurnBlack } = this.props
     const { handleAddChessBoard } = this.props
     const { winner } = this.props
+    const { backgroundColor } = this.props
+    const { isClick } = this.props
+    const { handleIsTurnWho } = this.props
     return (
       <div className="btn-board">
         {btnRows.map(row => (
-          <Btnrow key={row} rowId={row} handleChangeisTurn={this.handleChangeisTurn} isTurnBlack={isTurnBlack} 
-          handleAddChessBoard={handleAddChessBoard} winner={winner}></Btnrow>
+          <Btnrow key={row} rowId={row} handleIsTurnWho={handleIsTurnWho} isTurnBlack={isTurnBlack} 
+          handleAddChessBoard={handleAddChessBoard} winner={winner} backgroundColor={backgroundColor} isClick={isClick}></Btnrow>
         ))}
       </div>
     )

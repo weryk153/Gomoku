@@ -15,10 +15,13 @@ class App extends Component {
         black: 0,
         white: 0
       },
-      winner: ''
+      winner: '',
+      backgroundColor: 'transparent',
+      isClick: false,
+      isTurnBlack: true
     }
   }
-
+  // 計算黑白棋步數
   handleCount = (m, n) => {
     const { count } = this.state
     this.setState({
@@ -30,6 +33,20 @@ class App extends Component {
     })
   }
 
+  // 處理輪流下棋
+  handleIsTurnWho = () => {
+    const { isTurnBlack } = this.state
+    this.setState({
+      isTurnBlack: !isTurnBlack
+    })
+    if (isTurnBlack) {
+      this.handleCount(1, 0)
+    } else {
+      this.handleCount(0, 1)
+    }
+  }
+
+  // 紀錄黑白棋的位置
   handleAddChessBoard = (rowId, buttonId, color) => {
     const { chessBoard } = this.state
     chessBoard[rowId][buttonId] = color
@@ -39,7 +56,8 @@ class App extends Component {
         ]
     })
   }
-
+  
+  // 判斷勝負
   handleWhoIsWinner = () => {
     const { chessBoard } = this.state
       // 橫排判斷勝負
@@ -78,6 +96,21 @@ class App extends Component {
         }
       }
   }
+  
+  handleRestartGame = () => {
+    let Rows = [];
+    for (let i = 0; i < 19; i += 1) {
+      Rows.push([])
+    }
+    this.setState({
+      chessBoard: Rows,
+      count: {
+        black: 0,
+        white: 0
+      },
+      winner: '',
+    })
+  }
 
   componentDidMount() {
     // 排數
@@ -90,6 +123,7 @@ class App extends Component {
     })
   }
 
+  // 顯示誰是勝者
   componentDidUpdate(prevProps, prevState) {
     if (prevState.chessBoard !== this.state.chessBoard) {
       let winner = this.handleWhoIsWinner()
@@ -103,13 +137,17 @@ class App extends Component {
     const { count } = this.state
     const { chessBoard } = this.state
     const { winner } = this.state
+    const { backgroundColor } = this.state
+    const { isClick } = this.state
+    const { isTurnBlack } = this.state
     return (
       <div>
-        <Header count={count} winner={winner}></Header>
+        <Header count={count} winner={winner} handleRestartGame={this.handleRestartGame}></Header>
         <div className="container">
           <Board></Board>
           <Btnboard handleCount={this.handleCount} handleAddChessBoard={this.handleAddChessBoard} 
-          chessBoard={chessBoard} winner={winner}></Btnboard>
+          chessBoard={chessBoard} winner={winner} backgroundColor={backgroundColor} isClick={isClick}
+          handleIsTurnWho={this.handleIsTurnWho} isTurnBlack={isTurnBlack}></Btnboard>
         </div>
       </div>
     )

@@ -9,6 +9,7 @@ const Btn = styled.div`
   margin-left: 10px;
   background: ${props => props.btnColor};
   cursor: pointer;
+  box-shadow: ${props => props.btnColor === 'transparent' ? null : '2px 2px 6px'};
   :hover {
     background: ${props => props.btnColor !== 'transparent' ? null : 'rgba(255,255,255,0.5)'};
   }
@@ -18,18 +19,19 @@ class Button extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      backgroundColor: 'transparent',
-      isClick: false
+      backgroundColor: this.props.backgroundColor,
+      isClick: this.props.isClick
     }
   }
-
+  
+  // 改變棋子的顏色
   handleChangeColor = () => {
     const { isClick } = this.state
     const { winner } = this.props
     if (!isClick && winner === undefined) {
       const { isTurnBlack } = this.props
-      const { handleChangeisTurn } = this.props
-      handleChangeisTurn()
+      const { handleIsTurnWho } = this.props
+      handleIsTurnWho()
       this.setState({
         backgroundColor: isTurnBlack ? 'black' : 'white',
         isClick: true
@@ -43,6 +45,17 @@ class Button extends Component {
     const { backgroundColor } = this.state
     const { handleAddChessBoard } = this.props
     handleAddChessBoard(rowId, buttonId, backgroundColor)
+  }
+
+  // 重置棋盤
+  componentDidUpdate() {
+    const { winner } = this.props
+    if (winner === '') {
+      this.setState({
+        backgroundColor: this.props.backgroundColor,
+        isClick: this.props.isClick
+      })
+    }
   }
 
   render() {
