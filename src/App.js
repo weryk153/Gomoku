@@ -135,12 +135,7 @@ class App extends Component {
   }
 
   render() {
-    const { count } = this.state
-    const { chessBoard } = this.state
-    const { winner } = this.state
-    const { backgroundColor } = this.state
-    const { isClick } = this.state
-    const { isTurnBlack } = this.state
+    const { isTurnBlack, isClick, count, chessBoard, winner, backgroundColor,  } = this.state
     return (
       <div>
         <Header count={count} winner={winner} handleRestartGame={this.handleRestartGame}></Header>

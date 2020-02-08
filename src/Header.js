@@ -6,10 +6,7 @@ class Header extends Component {
   }
 
   render() {
-    const { count } = this.props
-    const { winner } = this.props
-    const { handleRestartGame } = this.props
-
+    const { handleRestartGame, winner, count } = this.props
     return (
       <div className="header">
         <div className="header-info">

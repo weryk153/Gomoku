@@ -23,13 +23,7 @@ class Btnrow extends Component {
 
   render() {
     const { btns } = this.state
-    const { isTurnBlack } = this.props
-    const { handleIsTurnWho } = this.props
-    const { rowId } = this.props
-    const { handleAddChessBoard } = this.props
-    const { winner } = this.props
-    const { backgroundColor } = this.props
-    const { isClick } = this.props
+    const { isClick, backgroundColor, winner, handleAddChessBoard, rowId, handleIsTurnWho, isTurnBlack } = this.props
     return (
       <div className="row btn-row">
         {btns.map(btn => (

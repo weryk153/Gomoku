@@ -22,12 +22,7 @@ class Btnboard extends Component {
 
   render() {
     const { btnRows } = this.state
-    const { isTurnBlack } = this.props
-    const { handleAddChessBoard } = this.props
-    const { winner } = this.props
-    const { backgroundColor } = this.props
-    const { isClick } = this.props
-    const { handleIsTurnWho } = this.props
+    const { handleIsTurnWho, isClick, backgroundColor, winner, handleAddChessBoard, isTurnBlack } = this.props
     return (
       <div className="btn-board">
         {btnRows.map(row => (

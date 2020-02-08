@@ -29,8 +29,7 @@ class Button extends Component {
     const { isClick } = this.state
     const { winner } = this.props
     if (!isClick && winner === undefined) {
-      const { isTurnBlack } = this.props
-      const { handleIsTurnWho } = this.props
+      const { isTurnBlack, handleIsTurnWho } = this.props
       handleIsTurnWho()
       this.setState({
         backgroundColor: isTurnBlack ? 'black' : 'white',
@@ -40,10 +39,8 @@ class Button extends Component {
   }
 
   handleAddChessBotton = () => {
-    const { buttonId } = this.props
-    const { rowId } = this.props
+    const { handleAddChessBoard, buttonId, rowId } = this.props
     const { backgroundColor } = this.state
-    const { handleAddChessBoard } = this.props
     handleAddChessBoard(rowId, buttonId, backgroundColor)
   }
 
